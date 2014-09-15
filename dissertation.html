@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EE6618 Presentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+
+      /*@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }*/
+
+
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+        right: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-center {
+        position: relative;
+        left: 25%;
+        width: 50%;
+
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+      .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+      }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+      .right-column table {
+        text-align: center;
+        border: 1px solid #98bf21;
+        margin: auto;
+        width: 80%;
+        position: relative;
+        /*left: 20%;*/
+        top: 5%;
+      }
+      .right-column table th {
+        padding: 3px 7px 2px 7px;
+        background-color: #A7C942;
+        color: #ffffff;
+      }
+      .right-column table td {
+        color:#000000;
+        background-color: #EAF2D3;
+      }
+      .green {
+        color: #87A558;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .source-notation {
+        width: 100%;
+        /*height: 10px;*/
+        text-align: center;
+        font-size: 0.6em
+      }
+      .figdesp {
+        width: 100%;
+        text-align: center;
+        font-size: 0.8em;
+        margin-top: -1em;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style='display: none;'>
+
+name: inverse
+class: middle, center, inverse
+layout: true
+
+---
+
+# Fast Generation of Digital Hologram
+.footnote[
+Supervisor:|Dr. Tsang, Peter Wai-Ming
+-------:|:--------
+Student Name:|Zhang Zhaoheng
+Student Number:|53233860
+]
+
+---
+layout: false
+class: center
+
+.green[
+#Content
+]
+##I. Introduction to Digital Hologram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+##II. Analysis of Off-axis Fresnel hologram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+##III. Computer generated hologram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+##IV. Code enhancement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+##V. Fast generation of Digital based on sub-line&nbsp;&nbsp;
+
+---
+.left-column[
+##Introduction
+###- Fresnel vs. Fourier hologram
+]
+.right-column[
+.center[
+##Fourier Hologram
+]
+<hr/>
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/fourierlens.png">
+.figdesp[
+Ideal thin lens as optical Fourier transformer 
+]
+]
+
+---
+.left-column[
+##Introduction
+###- Fresnel vs. Fourier hologram
+]
+.right-column[
+.center[
+##Fresnel Hologram
+]
+<hr/>
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/fresnelDF.png">
+.figdesp[
+Fresnel diffraction pattern from self-illuminating object point
+]
+]
+
+---
+.left-column[
+##Introduction
+###- Fresnel vs. Fourier hologram
+###- Digital vs. Optical hologram
+]
+.right-column[
+.middle[
+<br>
+<br>
+>> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Digital holography enables numerical processing on the acquired interference pattern and numerical reconstruction for the 3D objects.*
+
+>>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Compared with optical holography, the main advantage of digital holography is that the intensity and phase information stored in the hologram can be directly retrieved during the numerical reconstruction process, eliminating the need for chemical processing. This approach increases the flexibility and speed of the experiment.*
+]
+.right[
+*- CHEUNG WAI KEUNG*
+]
+]
+
+---
+template: inverse
+# Off-axis Fresnel Digital Hologram
+# (Off-axis FDH)
+
+---
+.left-column[
+## Off-axis FDH
+###- Fresnel Diffraction
+]
+.right-column[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/Cartesian.png">
+Fresnel Diffraction Integral:
+$$E(x,y) = {1 \over {i \lambda z}}\iint_{-\infty }^{+\infty}a(x_0,y_0,z)e^{ikr}dx_0dy_0$$
+
+Numerical form:
+
+$$D(x,y)=\sum_{j=0}^{N-1} \frac{a_j}{r_j}e^{ikr_j}$$
+
+]
+---
+.left-column[
+## Off-axis FDH
+###- Fresnel Diffraction
+###- Fresnel Approximation
+]
+.right-column[
+When `z` is large enough, we can apply Fresnel Approximation. 
+
+So that:
+$$r\approx z+{{(x-x_j)^2+(y-y_j)^2} \over 2z}$$
+
+As a result:
+$$E(x,y)={e^{ikz}\over {i\lambda z}} \iint_{-\infty}^{+\infty} a(x_0,y_0,z) e^{ik{{(x-x_0)^2+(y-y_0)^2}\over 2z}}dx_0dy_0$$
+
+And
+$$D(x,y)=e^{ikz} \sum_{j=0}^{N-1} {a_j \over r_j} e^{ik{{(x-x_j)^2+(y-y_j)^2} \over 2z}} $$
+
+`\(E(x,y) \)` and `\(D(x,y)\)` represents the diffraction pattern at the hologram plane
+]
+
+---
+.left-column[
+## Off-axis FDH
+###- Fresnel Diffraction
+###- Fresnel Approximation
+###- Fresnel Diffraction in Fourier transform
+]
+.right-column[
+The diffraction pattern can also be written in convolution form as:
+$$E(x,y)=a(x_0,y_0,z)\ast h(x,y;z)$$
+
+where
+$$h(x,y;z)={e^{ikz}\over i\lambda z} e^{ik({{x^2+y^2}\over 2z})}$$
+
+Applying Fourier transform on `\(a(x_0,y_0,z) \)` and `\(h(x,y;z) \)` and the inverse Fourier transform of their multiplication, the equation on top can be re-written as:
+$$E(x,y)=F^{-1}[A\cdot H]$$
+
+Here A and H represent the Fourier transform of object point and `\(h(x,y;z) \)` respectivelty.
+
+##Purpose:
+Represent `\(E(x,y) \)` by Fourier transform is helpful in numerical computation.
+]
+
+---
+.left-column[
+## Off-axis FDH
+###- Fresnel Diffraction
+###- Fresnel Approximation
+###- Calculation in Fourier transform
+###- Reference Wave
+]
+.right-column[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/refwave.png">
+If an off-axis reference wave R(y) with a vertical incident angle `\(\theta_r \)` is added
+
+The reference wave R(y) is:
+
+$$R(y)=a_r exp[iky\sin(\theta_r)]$$
+  
+]
+
+---
+.left-column[
+## Off-axis FDH
+###- Fresnel Diffraction
+###- Fresnel Approximation
+###- Calculation in Fourier transform
+###- Reference Wave
+###- Interference
+]
+.right-column[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/refwave.png">
+`\(H(x,y) \)` is the complex light intensity of an off-axis hologram that can be derived by:
+
+.left[
+`\(H(x,y)=|D(x,y)+R(y)|^2 \)`
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`\(=|D(x,y)|^2+|R(y)|^2+D(x,y)R^*(y)+D^*(x,y)R(y) \)`
+]
+]
+
+---
+template: inverse
+
+#Computer Generated Hologram
+#(CGH)
+
+---
+.left-column[
+##CGH
+###- Result
+]
+.right-column[
+.pull-left[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/ctu.bmp">
+.figdesp[
+original image
+]]
+.pull-right[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/holo1_ctu.bmp">
+.figdesp[
+off-axis fresnel hologram
+]]
+.pull-left[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/regen_ctu.bmp">
+.figdesp[
+reconstructed image with c
+]]
+.pull-right[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/re1_ctu_holovision.PNG">
+.figdesp[
+holovision result
+]]
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+]
+.right-column[
+##init()
+<hr/>
+Record `*.bmp`'s information. 54 chars of file header to `header` and image raw data into two demensional array `sdata[][]`
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+###fn_gen()
+]
+.right-column[
+##init()
+<hr/>
+Record `*.bmp`'s information. 54 chars of file header to `header` and image raw data into two demensional array `sdata[][]`
+##fn_gen()
+<hr/>
+calculate `\(h(x,y;z)\)` and Fourier transform it into `\(H \)`. The 2D-FFT is realized by computing the one-dimensional DFT of each column X, then of each row of the result. 
+
+origional data|process|middle result|process|final result
+--------------|-------|-------------|-------|------------
+fn[i][j]|1D-fft by col (loop with row)| Q[i][j]|1D-fft by row (loop with col)| fn[i][j]
+
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+###fn_gen()
+###Transform_image()
+]
+.right-column[
+##Transform_image()
+<hr/>
+Transform `\(a(x_0,y_0,z) \)` to `A` through 2D-FFT
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+###fn_gen()
+###Transform_image()
+###holo_gen()
+]
+.right-column[
+##Transform_image()
+<hr/>
+Transform `\(a(x_0,y_0,z) \)` to `A` by applying  2D-FFT
+##holo_gen()
+<hr/>
+Calculate `\(F^{-1}[A\cdot H] \)` of by applying 2D-FFT to image data
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+###fn_gen()
+###Transform_image()
+###holo_gen()
+###ref_gen()
+]
+.right-column[
+##Transform_image()
+<hr/>
+Transform `\(a(x_0,y_0,z) \)` to `A` through 2D-FFT
+##holo_gen()
+<hr/>
+Calculate `\(F^{-1}[A\cdot H] \)` of by applying 2D-FFT to image data
+##ref_gen()
+<hr/>
+```c
+  int i;
+  double y,wn,stp,d;
+  wn=2*pi/lamda;
+  laser_angle=laser_angle*pi/180;   
+  d=2*pi;
+  stp=d/8;
+  for(i=0;i<=H_ROW;i++)
+  {
+    y=(double)i*dy;
+    B[i].real=cos(wn*y*sin(laser_angle));
+    B[i].img=sin(wn*y*sin(laser_angle));
+  }
+```
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+###fn_gen()
+###Transform_image()
+###holo_gen()
+###ref_gen()
+###interference()
+
+]
+.right-column[
+<br>
+##interference()
+<hr/>
+Multiply `\(R(y) \)` and `\(F^{-1}[A\cdot H]\)` retrieve its real part to get the interference pattern.
+]
+
+---
+.left-column[
+## Work Flow
+###init()
+###fn_gen()
+###Transform_image()
+###holo_gen()
+###ref_gen()
+###interference()
+###normalize()
+]
+.right-column[
+<br>
+##interference()
+<hr/>
+Multiply `\(R(y) \)` and `\(F^{-1}[A\cdot H]\)` retrieve its real part to get the interference pattern.
+
+<br>
+<br>
+##normalize()
+<hr/>
+Restrice the each data in range `0~255` so that each data can be parsed in 'bmp' format by some picture rendering software.
+]
+
+
+
+---
+template: inverse
+# HOW TO
+# handle 8-bit gray scale image
+
+--
+# with a color pallate in file header?
+
+---
+
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+]
+
+.right-column[
+Original source code:
+
+```cpp
+  fread(header, sizeof(char),54,src);
+  ROW=header[23];ROW=ROW*256+header[22];
+  COL=header[19];COL=COL*256+header[18];
+```
+
+compared with revised code:
+
+```cpp
+*  unsigned char color[2000] //<--defined as a global variable
+  fread(header, sizeof(char),54,src);
+  ROW=header[23];ROW=ROW*256+header[22];
+  COL=header[19];COL=COL*256+header[18];
+  // new added code
+*  if (header[0x000B]!=0) {
+*    size_t bytesOfColor=header[0x000B]*256+header[0x000A]-54;
+*    fread(color, sizeof(char), bytesOfColor, src); 
+*  }
+```
+Explanation:
+
+variable name|offset|size(bytes)|description
+----|----|----|----
+header|000Ah|4|offset of image data position
+]
+
+---
+
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+]
+
+.right-column[
+Original source code:
+
+```c
+  fread(header, sizeof(char),54,src);
+  ROW=header[23];ROW=ROW*256+header[22];
+  COL=header[19];COL=COL*256+header[18];
+```
+
+compared with revised code:
+
+```c
+*  unsigned char color[2000] //<--defined as a global variable
+  fread(header, sizeof(char),54,src);
+  ROW=header[23];ROW=ROW*256+header[22];
+  COL=header[19];COL=COL*256+header[18];
+  // new added code
+*  if (header[0x000B]!=0) {
+*    size_t bytesOfColor=header[0x000B]*256+header[0x000A]-54;
+*    fread(color, sizeof(char), bytesOfColor, src); 
+*  }
+```
+For example, if a image's address `0x000A-0x000D` is:
+
+000A|000B|000C|000D
+---|----|----|----
+36|04|00|00
+
+We need to read additional `\(4 \times 256 = 1024\)` bytes from `*src` file pointer into `color` variable, in order to put `*src` file pointer to the start of the image data.
+]
+
+---
+name: biBitCount
+
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+###- Step 2
+]
+
+.right-column[
+Original source code:
+```c
+z=COL*3;
+```
+Compared with revised code:
+```c
+  //biBitCount means bits/pixel ( 8 or 24 )
+  int biBitCount = header[0x001C]+header[0x001D]*256; 
+  biBitCount = biBitCount/8;
+  z=COL*biBitCount;
+```
+
+Explanation:
+
+variable name|offset|size(bytes)|description
+----|----|----|----
+biBitCount|001Ch|2| bits/pixel
+]
+
+---
+template: biBitCount
+
+.right-column[
+if `header[0x001C]=8`, each pixel contains 8 bits (1 byte). In other words, it's a gray scale image. And `biBitCount=8`
+]
+--
+
+.right-column[
+if `header[0x001C]=24`, each pixel contains 24 bits (3 bytes). In other words, it's a RGB image. And `biBitCount=24`
+]
+---
+template: biBitCount
+
+.right-column[
+And then the revert the unit of `biBitCount` from `bit` to `byte` by `biBitCount = biBitCount/8` because `byte` is the minimum memory unit that C can handle
+]
+---
+
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+###- Step 2
+]
+
+.right-column[
+Original source code:
+```c
+z=COL*3;
+```
+Compared with revised code:
+```c
+  //biBitCount means bits/pixel ( 8 or 24 )
+  int biBitCount = header[0x001C]+header[0x001D]*256; 
+  biBitCount = biBitCount/8;
+  z=COL*biBitCount;
+```
+`z` is the number of bytes in one row
+]
+---
+
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+###- Step 2
+]
+
+.right-column[
+Original source code:
+```c
+z=COL*3;
+```
+Compared with revised code:
+```c
+  //biBitCount means bits/pixel ( 8 or 24 )
+  int biBitCount = header[0x001C]+header[0x001D]*256; 
+  biBitCount = biBitCount/8;
+  z=COL*biBitCount;
+```
+`z` is the total number of bytes in one row
+
+for a 24-bit RGB image, the length of z is:
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/24bit.png">
+i.e. `z=COL*3`
+
+for a 8-bit gray-scale image, the length of z is:
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/8bit.png">
+i.e. `z=COL*1`
+]
+---
+
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+###- Step 2
+###- Step 3
+]
+
+.right-column[
+Original source code:
+```c
+for(x=ROW-1;x>=0;x--)
+  {
+    fread(temp,sizeof(char),z,src);
+    for(y=0;y<z;y+=3)
+    {
+      sdata[x][y/3]=temp[y]; 
+    }
+  }
+```
+
+Compared with revised code:
+```c
+for(x=ROW-1;x>=0;x--)
+  {
+    fread(temp,sizeof(char),z,src);
+    for(y=0;y<z;y+=biBitCount)
+    {
+      sdata[x][y/biBitCount]=temp[y]; 
+    }
+  }
+```
+]
+
+---
+.left-column[
+## handle 8-bit gray scale image with color pallate in file header
+###- Step 1
+###- Step 2
+###- Step 3
+###- Results
+]
+
+.right-column[
+.pull-left[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/lena512.bmp">
+.figdesp[
+original image:`\(512\times512\)` 8-bit
+]]
+.pull-right[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/holo1_lena%20copy.bmp">
+.figdesp[
+hologram
+]]
+.pull-left[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/regen_lena.bmp">
+.figdesp[
+reconstructed image with c
+]]
+.pull-right[
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/re_lena_holovision.PNG">
+.figdesp[
+holovision-result
+]]
+]
+
+---
+template: inverse
+
+# Fast generation of digital hologram 
+# based on sub-line
+
+---
+.left-column[
+## Fast generation of digital hologram based on sub-line
+<br>
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/subline.png">
+]
+.right-column[
+
+<img src="https://raw.githubusercontent.com/zzh699/prepic/master/subline.png" width=70% height=70%>
+$$O(x)=\sum_{j=0}^{N-1} {a_j \over r_j} {e^{ikr_j}}$$
+
+$$R(y)=a_r e^{iky{\sin {\theta_r}}}$$
+
+$$H(x,y)=Re[O(x)R^*(y)]$$
+
+]
+
+---
+#Summary
+<hr/>
+##- Wave theory
+--
+
+##- Fourier Transform
+--
+
+##- Image processing
+--
+
+##- Matlab
+
+---
+template: inverse
+#THANK YOU
+
+
+    </textarea>
+
+    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.6.5.min.js" type="text/javascript">
+    </script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        highlightStyle:'monokai',
+        highlightLanguage:'cpp',
+
+        navigation: {
+          click: true
+        }
+      });
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
+      // end setup. Copy this part to other html file if you
+      // want to use Mathjax in remark
+    </script>
+  </body>
+</html>
